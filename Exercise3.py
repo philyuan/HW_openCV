@@ -1,7 +1,11 @@
+# Philip Yuan
+# EC601
+
 import cv2
 import numpy as np
 
 
+# Gaussian noise
 def noise_gaussian(image,mean,sigma):
     row, column = image.shape
     ga = np.random.normal(mean,sigma,(row,column))
@@ -10,6 +14,7 @@ def noise_gaussian(image,mean,sigma):
     return result
 
 
+# Salt and pepper noise
 def noise_snp(image,prob_s,prob_p):
     result = np.copy(image)
 
@@ -26,6 +31,7 @@ def noise_snp(image,prob_s,prob_p):
     return result
 
 
+# Smoothing filters
 def smoothing(g_image, snp_image, kernel):
     # Original
     cv2.imwrite('./filter/g_original.png',g_image)
